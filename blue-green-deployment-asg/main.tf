@@ -189,3 +189,41 @@ module "lb-asg-app-2" {
     module.asg-app-2
   ]
 }
+
+# Use this only if you have already setup hosted zone in route53 
+
+# module "r53-web" {
+#   source = "../modules/networking/r53"
+#   team = var.team
+#   env = var.env
+#   service_1 = var.service_1
+#   service_2 = var.service_3
+#   hostname = var.hostname_1
+#   record_1 = data.aws_lb.alb_1.dns_name
+#   record_2 = data.aws_lb.alb_3.dns_name
+#   host_zone_id = var.host_zone_id
+#   depends_on = [
+#     module.asg-web-1,
+#     module.lb-asg-web-1,
+#     module.asg-web-2,
+#     module.lb-asg-web-2
+#   ]
+# }
+# 
+# module "r53-app" {
+#   source = "../modules/networking/r53"
+#   team = var.team
+#   env = var.env
+#   service_1 = var.service_2
+#   service_2 = var.service_4
+#   hostname = var.host
+#   record_1 = data.aws_lb.alb_2.dns_name
+#   record_2 = data.aws_lb.alb_4.dns_name
+#   host_zone_id = var.host_zone_id
+#   depends_on = [
+#     module.asg-app-1,
+#     module.lb-asg-app-1,
+#     module.asg-app-2,
+#     module.lb-asg-app-2
+#   ]
+# }

@@ -240,3 +240,18 @@ variable "sg_rule_2_port" {
   type    = number
   default = 443
 }
+
+variable "hostname_1" {
+  type = string
+  default = "web.example.com"
+}
+
+variable "hostname_2" {
+  type = string
+  default = "app.example.com"
+}
+
+variable "host_zone_id" {
+  type = string
+  description = "Route 53 hosted zone id."
+}

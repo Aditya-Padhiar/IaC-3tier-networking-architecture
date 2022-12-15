@@ -139,3 +139,36 @@ data "aws_security_group" "asg-service-sg-4" {
     module.asg-app-2
   ]
 }
+
+data "aws_lb" "alb_1" {
+  tags = {
+    Name = "${var.env}-${var.service_1}-alb"
+  }
+  depends_on = [
+    module.lb-asg-web-1
+  ]
+}
+data "aws_lb" "alb_2" {
+  tags = {
+    Name = "${var.env}-${var.service_2}-alb"
+  }
+  depends_on = [
+    module.lb-asg-app-1
+  ]
+}
+data "aws_lb" "alb_3" {
+  tags = {
+    Name = "${var.env}-${var.service_3}-alb"
+  }
+  depends_on = [
+    module.lb-asg-web-2
+  ]
+}
+data "aws_lb" "alb_4" {
+  tags = {
+    Name = "${var.env}-${var.service_4}-alb"
+  }
+  depends_on = [
+    module.lb-asg-app-2
+  ]
+}
